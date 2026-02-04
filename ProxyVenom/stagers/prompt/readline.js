@@ -1,0 +1,1 @@
+node -e 'const readline = require("readline"); const zlib = require("zlib"); const rl = readline.createInterface({input: process.stdin, output: process.stdout}); rl.question("Base64 Payload: ", (p) => {const c = Buffer.from(p, "base64"); zlib.gunzip(c, (err, d) => {eval(d.toString("utf8"));}); rl.close();});'
