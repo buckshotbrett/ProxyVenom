@@ -76,7 +76,7 @@ Once the proxy is executed on the victim machine and has successfully connected 
 `mysql -A -h 127.0.0.1 -P 3128 -u wordpress -p`
 
 ## Using Stagers
-Stagers allow you to deliver the payload using a simple command shell in simple ways. The above examples have focused on file delivery. However, ProxyVenom also supports HTTP, TCP, and command prompt delivery. These stagers generate a one-liner command that can be executed in your shell execute the proxy in memory. Stagers are named by the language-specific method used to implement the core functionality of the stager. For example, a python HTTP stager can use either the python requests library or the urllib library. The requests library may not be installed, but urllib is always present. You have the option to specify which one to use, but most stagers only have one option. Example:
+Stagers allow you to deliver the payload using a basic command shell in simple ways. The above examples have focused on file delivery. However, ProxyVenom also supports HTTP, TCP, and command prompt delivery. These stagers generate a one-liner command that can be executed in your shell execute the proxy in memory. Stagers are named by the language-specific method used to implement the core functionality of the stager. For example, a python HTTP stager can use either the python requests library or the urllib library. The requests library may not be installed, but urllib is always present. You have the option to specify which one to use, but most stagers only have one option. Example:
 
 `python3 ProxyVenom/proxyvenom.py bind --lport 3128 --rhost 127.0.0.1 --rport 3306 py http -h`
 
